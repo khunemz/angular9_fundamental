@@ -15,15 +15,5 @@ export class AppComponent {
     { path: '/courses', icon: 'view_list', title: 'Courses' },
   ];
 
-<<<<<<< HEAD
-  isAuthenticated$ = this.authService.isAuthenticated$.pipe(shareReplay(1));
-
-  constructor(private authService: AuthService) {}
-
-  logout() {
-    this.authService.logout();
-  }
-=======
   constructor() {}
->>>>>>> 244d30ea6dbaf1cb99887af2ec8c9f6bff474d86
 }
