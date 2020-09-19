@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
-  currentCourse: any = null;
+  currentCourse: any;
   courses = [
     {
       id: 1,
@@ -14,14 +14,14 @@ export class CoursesComponent implements OnInit {
       description: 'Learn the fundamentals of Angular 9',
       percentComplete: 26,
       favorite: true
-    } , 
+    },
     {
       id: 2,
       title: 'React Fundamentals',
       description: 'Learn the fundamentals of Reacdt',
       percentComplete: 30,
       favorite: true
-    } , 
+    },
     {
       id: 3,
       title: 'HTML course',
@@ -34,16 +34,31 @@ export class CoursesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.currentCourse = {
+      id: null , title: '' , description: '' , percentComplete: 0 , favorite: false 
+    }
   }
 
-  selectCourse(course) : void {
+  selectCourse(course): void {
     this.currentCourse = course;
   }
 
   deleteCourse(id): void {
-    console.log('delete course : ' , id);
+    console.log('delete course : ', id);
 
-    
+
+  }
+
+  cancel() : void {
+    this.resetCurrentCourse();
+  }
+
+  resetCurrentCourse(): void {
+    const emptyCourse = {
+      id: null , title: '' , description: '' , percentComplete: 0 , favorite: false 
+    }
+
+    this.currentCourse = emptyCourse;
   }
 
 }
