@@ -1,6 +1,10 @@
 <mat-toolbar color="primary" class="mat-elevation-z4">
   <span>
+<<<<<<< HEAD
     <button *ngIf="isAuthenticated$ | async" mat-mini-fab (click)="sidenav?.toggle()">
+=======
+    <button mat-mini-fab (click)="sidenav?.toggle()">
+>>>>>>> 244d30ea6dbaf1cb99887af2ec8c9f6bff474d86
       <mat-icon>menu</mat-icon>
     </button>
     <span class="logo">
@@ -11,6 +15,7 @@
     </span>
   </span>
   <span class="spacer"></span>
+<<<<<<< HEAD
   <button *ngIf="isAuthenticated$ | async" (click)="logout()" class="login" mat-mini-fab>
     <mat-icon>person</mat-icon>
   </button>
@@ -34,3 +39,19 @@
     <router-outlet></router-outlet>
   </div>
 </mat-sidenav-container>
+=======
+  <button class="login" mat-mini-fab>
+    <mat-icon>person</mat-icon>
+  </button>
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" opened class="app-sidenav">
+    <!-- Sidenav Menu -->
+  </mat-sidenav>
+  
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+  </mat-sidenav-container>
+>>>>>>> 244d30ea6dbaf1cb99887af2ec8c9f6bff474d86

@@ -1,4 +1,5 @@
 <div class="courses-containers">
+<<<<<<< HEAD
   <div class="courses-list">
     <app-courses-list [courses]="courses$ | async" (courseSelected)="selectCourse($event)"
       (courseDeleted)="deleteCourse($event)"></app-courses-list>
@@ -8,3 +9,40 @@
       (courseCancelled)="resetCourse()"></app-course-details>
   </div>
 </div>
+=======
+    <div class="courses-list">
+        <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+            Course List
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+
+            <!-- COURSES LIST -->
+
+        </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div class="course-details">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    Select Course
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+            
+            <!-- COURSE FORM -->
+
+            </mat-card-content>
+            <mat-card-actions>
+
+            <!-- COURSE ACTIONS -->
+
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
+>>>>>>> 244d30ea6dbaf1cb99887af2ec8c9f6bff474d86

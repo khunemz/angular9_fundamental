@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 import { Course } from '../shared/interfaces/course.interface';
 import { CoursesService } from '../shared/services/courses.service';
+=======
+>>>>>>> 244d30ea6dbaf1cb99887af2ec8c9f6bff474d86
 
 @Component({
   selector: 'app-courses',
@@ -11,6 +14,7 @@ import { CoursesService } from '../shared/services/courses.service';
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
+<<<<<<< HEAD
   courses$: Observable<Course[]>;
   selectedCourse: Course;
 
@@ -67,4 +71,21 @@ export class CoursesComponent implements OnInit {
 
     this.selectCourse(emptyCourse);
   }
+=======
+  courses = [
+    {
+      id: 1,
+      title: 'Angular 9 Fundamentals',
+      description: 'Learn the fundamentals of Angular 9',
+      percentComplete: 26,
+      favorite: true
+    }
+  ];
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+>>>>>>> 244d30ea6dbaf1cb99887af2ec8c9f6bff474d86
 }
