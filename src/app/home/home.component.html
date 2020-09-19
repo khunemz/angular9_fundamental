@@ -5,12 +5,30 @@
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <span [style.color]="themeColor">{{title}}</span>
       <!-- LESSON LIST -->
-      <mat-form-field class="example-full-width">
-        <mat-label>Theme color label</mat-label>
-        <input matInput [(ngModel)]="themeColor" />
-      </mat-form-field>
+        
+        <mat-list-item *ngFor="let lesson of courseLessons"  (click)="selectLesson(lesson)">
+          <p>{{lesson.title}}</p>
+        </mat-list-item> 
       
     </mat-card-content>
+  </mat-card>
+
+
+  <mat-card>
+    <mat-card-title>
+
+    </mat-card-title>
+
+    <mat-card-content>
+      <span *ngIf="currentLesson;else elseBlock" >{{currentLesson.title}}</span>
+      <ng-template #elseBlock>
+        select a lesson
+      </ng-template>
+      
+    </mat-card-content>
+    <mat-card-footer>
+      
+    </mat-card-footer>
+
   </mat-card>
