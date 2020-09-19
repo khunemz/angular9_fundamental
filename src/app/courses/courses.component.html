@@ -34,10 +34,10 @@
 
                 <span *ngIf="currentCourse;else elseBlock">{{currentCourse.title}}</span>
 
-                <form #form="ngForm">
+                <form #form="ngForm" (submit)="saveCourse()">
                     <mat-form-field>
                         <input matInput placeholder="title" type="text" name="title"
-                            [(ngModel)]="currentCourse.title" />
+                            [(ngModel)]="currentCourse.title"  required/>
                     </mat-form-field>
 
                     <mat-form-field>
@@ -53,8 +53,9 @@
             <mat-card-actions>
 
                 <!-- COURSE ACTIONS -->
+                <button type="submit" mat-button class="btn-primary" [disabled]="!form.valid">Submit</button>
                 <button type="button" mat-button (click)="cancel()">Reset</button>
-
+                
             </mat-card-actions>
         </mat-card>
     </div>
