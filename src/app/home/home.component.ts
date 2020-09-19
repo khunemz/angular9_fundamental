@@ -19,7 +19,8 @@ export class HomeComponent implements OnInit {
   ];
 
   constructor() { }
-
+title: string = 'hi there';
+  themeColor: string = 'blue';
   ngOnInit(): void {
   }
 
