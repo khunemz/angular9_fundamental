@@ -36,14 +36,24 @@
 
                 <form #form="ngForm" (submit)="saveCourse()">
                     <mat-form-field>
-                        <input matInput placeholder="title" type="text" name="title"
-                            [(ngModel)]="currentCourse.title"  required/>
+                        <input matInput placeholder="title" type="text" name="title" [(ngModel)]="currentCourse.title"
+                            required />
                     </mat-form-field>
 
                     <mat-form-field>
                         <input matInput placeholder="description" type="text" name="description"
                             [(ngModel)]="currentCourse.description" />
                     </mat-form-field>
+
+                    <h4>percent complete : {{currentCourse.percentComplete}}</h4>
+
+                    <mat-slider class="full-wiidth" min="0" max="100" name="percentComplete" thumbLabel
+                        [(ngModel)]="currentCourse.percentComplete">
+
+                    </mat-slider>
+<br />
+                    <input  type="checkbox" name="favorite" [(ngModel)]="currentCourse.favorite" />
+
                 </form>
                 <ng-template #elseBlock>
                     select a course
@@ -55,7 +65,7 @@
                 <!-- COURSE ACTIONS -->
                 <button type="submit" mat-button class="btn-primary" [disabled]="!form.valid">Submit</button>
                 <button type="button" mat-button (click)="cancel()">Reset</button>
-                
+
             </mat-card-actions>
         </mat-card>
     </div>
