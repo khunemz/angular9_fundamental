@@ -11,6 +11,7 @@ const BASE_URL = 'http://localhost:3000/courses';
 })
 export class CoursesService {
 
+  private model: string = 'courses';
   constructor(private http: HttpClient, private notificationService: NotificationService) { }
 
   getAllCourses(displayNotification: boolean) {
@@ -33,5 +34,26 @@ export class CoursesService {
   deleteCourse(id: number) {
     this.notificationService.notify('Delete Course HTTP Call');
     return this.http.delete(`${BASE_URL}/${id}`);
+  }
+
+  find(course: any) {
+    return this.http.get(`${BASE_URL}/${course.id}`)
+  }
+
+
+  all() {
+    return this.http.get(`${BASE_URL}`);
+  }
+
+  create(course) {
+    return this.http.post(`${BASE_URL}`, course);
+  }
+
+  update(course: any) {
+    return this.http.put(`${BASE_URL}/${course.id}` ,  course);
+  }
+
+  delete(course: any) {
+    return this.http.delete(`${BASE_URL}/${course.id}` ,  course);
   }
 }

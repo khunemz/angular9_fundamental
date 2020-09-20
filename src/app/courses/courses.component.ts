@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CoursesService } from '../shared/services/courses.service';
 
 @Component({
   selector: 'app-courses',
@@ -7,49 +8,44 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoursesComponent implements OnInit {
   currentCourse: any;
-  courses = [
-    {
-      id: 1,
-      title: 'Angular 9 Fundamentals',
-      description: 'Learn the fundamentals of Angular 9',
-      percentComplete: 26,
-      favorite: true
-    },
-    {
-      id: 2,
-      title: 'React Fundamentals',
-      description: 'Learn the fundamentals of Reacdt',
-      percentComplete: 30,
-      favorite: true
-    },
-    {
-      id: 3,
-      title: 'HTML course',
-      description: 'HTML Javascript',
-      percentComplete: 30,
-      favorite: true
-    }
-  ];
+  courses: any;
 
-  constructor() { }
+  constructor(private courseService: CoursesService) { }
 
   ngOnInit(): void {
-    this.currentCourse = {
-      id: null , title: '' , description: '' , percentComplete: 0 , favorite: false 
-    }
+    this.resetCurrentCourse();
+    this.courseService.all().subscribe( courses => {
+      console.log('init course : ' , courses);
+      this.courses = courses;
+    });
   }
 
   selectCourse(course): void {
     this.currentCourse = course;
   }
 
-  saveCourse():void {
-    
+  loadCourses() {
+    this.courseService.all().subscribe( courses => {
+      console.log('init course : ' , courses);
+      this.courses = courses;
+    });
+  }
+  
+
+  saveCourse(currentCourse):void {
+    let course = currentCourse;
+    if(course.id) {
+      this.courseService.update(course).subscribe(result => {
+        this.loadCourses();
+      });
+    } else {
+      this.courseService.create(course).subscribe(result => {
+          this.loadCourses();
+      });
+    }
   }
   deleteCourse(id): void {
     console.log('delete course : ', id);
-
-
   }
 
   cancel() : void {
@@ -64,4 +60,5 @@ export class CoursesComponent implements OnInit {
     this.currentCourse = emptyCourse;
   }
 
+  
 }
