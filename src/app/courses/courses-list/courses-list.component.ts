@@ -7,6 +7,7 @@ import { Course } from 'src/app/shared/interfaces/course.interface';
   styleUrls: ['./courses-list.component.scss']
 })
 export class CoursesListComponent implements OnInit {
+  // like props in react js
   @Input() courses: Course[];
   @Output() courseSelected = new EventEmitter<Course>();
   @Output() courseDeleted = new EventEmitter<number>();

@@ -40,7 +40,6 @@ export class CoursesService {
     return this.http.get(`${BASE_URL}/${course.id}`)
   }
 
-
   all() {
     return this.http.get(`${BASE_URL}`);
   }
